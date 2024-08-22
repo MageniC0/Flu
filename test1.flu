@@ -1,0 +1,2 @@
+from "H/" load "test.txt" as str > str1
+outline(str1)
