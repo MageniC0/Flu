@@ -1,0 +1,14 @@
+a.custom-link
+{   
+    display: inline-block;
+    background-color: #000000;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+a.custom-link:hover
+{   
+    background-color: #D8FFFB;
+}

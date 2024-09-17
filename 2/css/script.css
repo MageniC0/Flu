@@ -1,0 +1,11 @@
+#game-container
+{   
+    display: none;
+    text-align: left;
+}
+
+#game-container input
+{   
+    padding: 10px;
+    font-size: 16px;
+}

@@ -1,0 +1,16 @@
+p
+{   
+    font-size: 16px;
+    line-height: 1.6;
+    background-color: rgba(255, 255, 255, 0.5);
+    padding: 0px;
+    color: #353A49;
+}
+
+h1
+{
+    color: #44CEF4;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.5);
+    padding: 0px;
+}
