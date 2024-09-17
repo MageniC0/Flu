@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Some page</title>
+    <style>
+    /* 文本样式 */
+    /* 背景 */
+    body {
+        background: linear-gradient(to bottom, #F2F8FF, #D8FFFB);
+        margin: 0;
+        height: 100vh;
+    }
+    /* 文本 */
+    p {
+        font-size: 16px;
+        line-height: 1.6;
+        background-color: rgba(255, 255, 255, 0.5);
+        padding: 0px;
+        color: #353A49;
+    }
+    /* 比较大的字 */
+    h1 {
+        color: #44CEF4;
+        text-align: center;
+        background-color: rgba(255, 255, 255, 0.5);
+        padding: 0px;
+    }
+
+    /* 链接样式 */
+    /* 链接 */
+    a.custom-link {
+        display: inline-block;
+        background-color: #000000;
+        color: white;
+        padding: 10px 20px;
+        text-decoration: none;
+        font-size: 16px;
+    }
+    /* 点击链接的时候 */
+    a.custom-link:hover {
+        background-color: #D8FFFB;
+    }
+    
+    /* 脚本样式 */
+    /* 。。。 */
+    #game-container {
+        text-align: left;
+    }
+    
+    /* 输入框 */
+    #game-container input {
+        padding: 10px;
+        font-size: 16px;
+    }
+    </style>
+</head>
+<body>
+    <h1>Welcome to Dvclv</h1>
+    <p>There is nothing but something.</p>
+    <a href="https://space.bilibili.com/411282991?spm_id_from=333.976.0.0" class="custom-link">磁砖的b站主页</a>
+    <p>这里有一个好东西awa</p>
+    <div id="game-container">
+        <h1>猜数字游戏awa</h1>
+        <p>范围：1~100</p>
+        <input type="number" id="guess" placeholder="写在这里" onkeypress="return event.keyCode != 13">
+        <p id="result"></p>
+    </div>
+    <script>
+    /* 脚本 */
+        var secretNumber = Math.floor(Math.random() * 100) + 1;
+        var attempts = 0;
+        
+        function checkGuess() {
+            var userGuess = document.getElementById("guess").value;
+            // 检查输入是否为数字
+            if (isNaN(userGuess) || userGuess.trim() === '') {
+                document.getElementById("result").innerHTML = "呃。。。";
+                return; // 如果不是数字，则不进行后续操作并退出函数
+            }
+            
+            // 将输入转换为数字
+            userGuess = Number(userGuess);
+            attempts++;
+            
+            if (userGuess == secretNumber) {
+                document.getElementById("result").innerHTML = "尝试了 " + attempts + " 次之后，你猜到了" + secretNumber + "。";
+            } else if (userGuess < secretNumber) {
+                document.getElementById("result").innerHTML = userGuess + " 太低了。继续。";
+            } else if (userGuess > secretNumber) {
+                document.getElementById("result").innerHTML = userGuess + " 太高了。继续。";
+            }
+            
+            document.getElementById("guess").value = ""; // 清空输入框
+        }
+        
+        // 添加事件监听器，监听回车键
+        document.getElementById('guess').addEventListener('keypress', function(event) {
+            if (event.keyCode === 13) { // 回车键的键码是13
+                event.preventDefault(); // 阻止默认行为
+                checkGuess();
+            }
+        });
+        
+    </script>
+</body>
+</html>
