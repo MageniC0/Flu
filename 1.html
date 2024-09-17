@@ -46,6 +46,7 @@
     /* 脚本样式 */
     /* 。。。 */
     #game-container {
+        display: none; /* 初始隐藏游戏 */
         text-align: left;
     }
     
@@ -59,10 +60,13 @@
 <body>
     <h1>Welcome to Dvclv</h1>
     <p>There is nothing but something.</p>
-    <a href="https://space.bilibili.com/411282991?spm_id_from=333.976.0.0" class="custom-link">磁砖的b站主页</a>
-    <p>这里有一个好东西awa</p>
+    <div style="display: grid;">
+        <a href="https://space.bilibili.com/411282991?spm_id_from=333.976.0.0" class="custom-link">磁砖的b站主页</a>
+        <a href="https://author.baidu.com/home?context={%22from%22:%22personal-center%22,%22uk%22:%22tNUm-pkW_SQYEaYIKK2wsg%22,%22tab%22:%22dynamic%22}" class="custom-link">磁砖的百度主页</a>
+    </div>
+    <p id="trigger">这里有一个好东西awa</p>
     <div id="game-container">
-        <h1>猜数字游戏awa</h1>
+        <h1>猜数字游戏</h1>
         <p>范围：1~100</p>
         <input type="number" id="guess" placeholder="写在这里" onkeypress="return event.keyCode != 13">
         <p id="result"></p>
@@ -103,6 +107,10 @@
             }
         });
         
+        // 点击触发显示游戏
+        document.getElementById('trigger').addEventListener('click', function() {
+            document.getElementById('game-container').style.display = 'block';
+        });
     </script>
 </body>
 </html>
